@@ -56,13 +56,11 @@
 " ys  - add a surrounding
 " yS  - add a surrounding and place the surrounded text on a new line + indent it
 " yss - add a surrounding to the whole line
-" ySs - add a surrounding to the whole line, place it on a new line + indent it
-" ySS - same as ySs
 
 " Visual mode
 " -----------
 " s   - in visual mode, add a surrounding
-" S   - in visual mode, add a surrounding but place text on new line + indent it
+" s   - in visual mode, add a surrounding but place text on new line + indent it
 
 " Insert mode
 " -----------
@@ -71,12 +69,6 @@
 " <CTRL-g>s - same as <CTRL-s>
 " <CTRL-g>S - same as <CTRL-s><CTRL-s>
 "
-" Alternar Entre Archivos:
-" .c y .h
-" http://www.vim.org/scripts/script.php?script_id=31
-"
-" Para usar: :A para alternar
-" 
 " UNDOTREE:
 " historial de UNDO tipo arbol
 "
@@ -84,6 +76,8 @@
 " En este vimrc se mapea a <leader>8
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set background=dark
+
 " Sin archivos de backup
 set nobackup
 set nowritebackup
@@ -95,6 +89,12 @@ map <A-S-Left> <C-W>>
 map <A-S-Right> <C-W><
 map <A-S-Up> <C-W>+
 map <A-S-Down> <C-W>-
+
+" use ESC to remove search higlight
+nnoremap <esc><esc> :noh<return><esc>
+
+" matching braces
+inoremap { {<CR>}<Esc>ko
 
 " Key mapping for windows navigationnwith TMUX
 if exists('$TMUX')
@@ -128,6 +128,9 @@ set ff=unix
 set relativenumber
 set number
 
+" show command in the last line
+set sc
+
 " Go to tab by number
 noremap <leader>1 1gt
 noremap <leader>2 2gt
@@ -148,9 +151,9 @@ set tags=tags;
 " Disable AutoComplPop.
 " let g:acp_enableAtStartup = 0
 " Use neocomplete.
-" let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
-" let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
 " let g:neocomplete#sources#syntax#min_keyword_length = 3
 
@@ -170,6 +173,8 @@ nmap ga <Plug>(EasyAlign)
 " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Enable omni completion.
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
@@ -181,15 +186,6 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
     " let g:neocomplete#keyword_patterns = {}
 " endif
 " let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Con esto evitamos que el NeoComplete entre en accion cuando tenemos ulticursores
-function! Multiple_cursors_before()
-    " exe 'NeoCompleteDisable'
-endfunction
-
-function! Multiple_cursors_after()
-    " exe 'NeoCompleteEnable'
-endfunction
 
 """""""""""""" SYNTASTIC """"""""""""""
 set statusline+=%#warningmsg#
@@ -233,11 +229,11 @@ map <leader>8 :UndotreeToggle<CR>
 " Comentarios:
 inoremap $$ /*<space><space>*/<esc>hhi
 inoremap $# /*<CR><CR>/<esc>kA<tab>
+inoremap $% <esc>mcI//<esc>`c
 
 " Pone ; al final de la linea sin mover el cursor de su lugar
 inoremap ;; <esc>mcA;<esc>`c 
 
-    
 
 """""""""""""" QUICK jumps """"""""""""""""
 map <leader>a <leader><leader>s
