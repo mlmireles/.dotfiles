@@ -69,12 +69,6 @@
 " <CTRL-g>s - same as <CTRL-s>
 " <CTRL-g>S - same as <CTRL-s><CTRL-s>
 "
-" UNDOTREE:
-" historial de UNDO tipo arbol
-"
-" https://github.com/mbbill/undotree
-" En este vimrc se mapea a <leader>8
-"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
 
@@ -92,9 +86,6 @@ map <A-S-Down> <C-W>-
 
 " use ESC to remove search higlight
 nnoremap <esc><esc> :noh<return><esc>
-
-" matching braces
-inoremap { {<CR>}<Esc>ko
 
 " Key mapping for windows navigationnwith TMUX
 if exists('$TMUX')
@@ -146,6 +137,51 @@ autocmd BufEnter * silent! lcd %:p:h
 
 " Hace que los tags se busquen desde el dir del archivo seleccionado hasta el root
 set tags=tags;
+
+
+"------------------ brackets ----------------
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap {<CR> {<CR>}<Esc>ko
+autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
+inoremap ) <c-r>=ClosePair(')')<CR>
+inoremap ] <c-r>=ClosePair(']')<CR>
+inoremap } <c-r>=CloseBracket()<CR>
+inoremap " <c-r>=QuoteDelim('"')<CR>
+inoremap ' <c-r>=QuoteDelim("'")<CR>
+
+function ClosePair(char)
+ if getline('.')[col('.') - 1] == a:char
+ return "\<Right>"
+ else
+ return a:char
+ endif
+endf
+
+function CloseBracket()
+ if match(getline(line('.') + 1), '\s*}') < 0
+ return "\<CR>}"
+ else
+ return "\<Esc>j0f}a"
+ endif
+endf
+
+function QuoteDelim(char)
+ let line = getline('.')
+ let col = col('.')
+ if line[col - 2] == "\\"
+ "Inserting a quoted quotation mark into the string
+ return a:char
+ elseif line[col - 1] == a:char
+ "Escaping out of the string
+ return "\<Right>"
+ else
+ "Starting a string
+ return a:char.a:char."\<Esc>i"
+ endif
+endf
+"------------------ end brackets ------------
+
 
 "****************** configure neocomplete **************************
 " Disable AutoComplPop.
@@ -219,11 +255,6 @@ let g:gitgutter_highlight_lines = 0
 
 """""""""""""" TAGBAR """"""""""""""""
 map <leader>9 :TagbarToggle<CR>
-
-
-"""""""""""""" UNDO-TREE """"""""""""""""
-map <leader>8 :UndotreeToggle<CR>
-
 
 """""""""""""" SNIPPETS """"""""""""""""
 " Comentarios:
