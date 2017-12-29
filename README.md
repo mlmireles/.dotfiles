@@ -16,6 +16,9 @@ vim awesome
 * github.com/tony/tmux-config/blob/master/.tmux.conf
 * github.com/s3rvac/dotfiles/blob/master/tmux/.tmux.conf
 
+### Z ###
+* https://github.com/rupa/z
+
 ## Go(lang) ##
 * https://golang.org/doc/install
 
@@ -31,3 +34,6 @@ vim awesome
 
 ## mongodb ##
 * https://www.mongodb.com
+
+### postman ###
+* https://www.getpostman.com
