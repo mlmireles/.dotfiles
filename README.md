@@ -9,6 +9,7 @@
 
 ## vim ##
 vim awesome
+* https://github.com/amix/vimrc
 
 ## TMUX ##
 * https://leanpub.com/the-tao-of-tmux/read
