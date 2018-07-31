@@ -70,6 +70,8 @@
 " <CTRL-g>S - same as <CTRL-s><CTRL-s>
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""" HS
 set background=dark
 
 " Sin archivos de backup
@@ -121,6 +123,12 @@ set number
 
 " show command in the last line
 set sc
+
+" TypeScript
+autocmd FileType ts setlocal shiftwidth=2 tabstop=2
+autocmd BufNewFile,BufRead *.ts set shiftwidth=2 tabstop=2
+
+">>>>>>>>>>>>>>>>>> HS
 
 " Go to tab by number
 noremap <leader>1 1gt
