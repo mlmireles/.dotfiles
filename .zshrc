@@ -128,10 +128,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # z
-. ~/sw/z/z.sh
+. ~/.oh-my-zsh/plugins/z/z.sh
 
 # Go
-export GOPATH=$HOME/programming/go/
+export GOPATH=$HOME/dev/go/
 #export PATH=$PATH:$HOME/Software/go_appengine
 
 # nvm
