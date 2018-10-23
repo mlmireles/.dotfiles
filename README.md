@@ -11,6 +11,9 @@
 vim awesome
 * https://github.com/amix/vimrc
 
+## YouCompleteMe ##
+* https://valloric.github.io/YouCompleteMe/
+
 ## TMUX ##
 * https://leanpub.com/the-tao-of-tmux/read
 * github.com/tony/tmux-config/blob/master/.tmux.conf
