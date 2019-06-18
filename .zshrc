@@ -6,11 +6,11 @@ promptinit
 setopt histignorealldups sharehistory
 
 # Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
+bindkey -v
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=2000
+SAVEHIST=3000
 HISTFILE=~/.zsh_history
 
 # Use modern completion system
@@ -131,13 +131,13 @@ source $ZSH/oh-my-zsh.sh
 . ~/.oh-my-zsh/plugins/z/z.sh
 
 # Go
-export GOPATH=$HOME/dev/go/
+#export GOPATH=$HOME/dev/go/
 #export PATH=$PATH:$HOME/Software/go_appengine
 
 # nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # The next line updates PATH for the Google Cloud SDK.
 #if [ -f '/home/martin/Software/google-cloud-sdk/path.zsh.inc' ]; then source '/home/martin/Software/google-cloud-sdk/path.zsh.inc'; fi
