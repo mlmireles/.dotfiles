@@ -132,7 +132,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Go
 #export GOPATH=$HOME/dev/go/
+#export GOBIN=$HOME/dev/go/bin/
 #export PATH=$PATH:$HOME/Software/go_appengine
+#export PATH=$PATH:$GOBIN
 
 # nvm
 #export NVM_DIR="$HOME/.nvm"
@@ -146,10 +148,23 @@ source $ZSH/oh-my-zsh.sh
 #if [ -f '/home/martin/Software/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/martin/Software/google-cloud-sdk/completion.zsh.inc'; fi
 
 # TensorFlow
-export TF_TYPE="cpu" # Change to "gpu" for GPU support
-export OS="linux" # Change to "darwin" for macOS
-export TARGET_DIRECTORY="/usr/local"
+#export TF_TYPE="cpu" # Change to "gpu" for GPU support
+#export OS="darwin" # Change to "darwin" for macOS
+#export TARGET_DIRECTORY="/usr/local"
 #export LIBRARY_PATH=$LIBRARY_PATH:~/mydir/lib # For both Linux and macOS X
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/mydir/lib # For Linux only
 
 
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home
+#export JAVA_HOME=$(/usr/libexec/java_home)
+#export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+
+# MySQL
+#export PATH=$PATH:/Applications/MySQLWorkbench.app/Contents/MacOS
+
+# Environment variables
+#source ~/.envs
