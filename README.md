@@ -25,6 +25,7 @@ vim awesome
 ## Go(lang) ##
 * https://golang.org/doc/install
 * https://github.com/fatih/vim-go
+* https://thoughtbot.com/blog/writing-go-in-vim
 
 ## npm / node ##
 * https://nodejs.org/en/
