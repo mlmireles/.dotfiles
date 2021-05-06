@@ -72,6 +72,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""" HS
+set clipboard=unnamed
 set background=dark
 
 " Sin archivos de backup
@@ -127,6 +128,9 @@ set sc
 " TypeScript
 autocmd FileType ts setlocal shiftwidth=2 tabstop=2
 autocmd BufNewFile,BufRead *.ts set shiftwidth=2 tabstop=2
+
+" Golang
+let g:go_fmt_command = "goimports"
 
 ">>>>>>>>>>>>>>>>>> HS
 
