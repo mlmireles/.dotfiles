@@ -118,6 +118,11 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -131,10 +136,11 @@ source $ZSH/oh-my-zsh.sh
 . ~/.oh-my-zsh/plugins/z/z.sh
 
 # Go
-#export GOPATH=$HOME/dev/go/
-#export GOBIN=$HOME/dev/go/bin/
-#export PATH=$PATH:$HOME/Software/go_appengine
-#export PATH=$PATH:$GOBIN
+export GOPATH=$HOME/dev/go/
+export GOBIN=$HOME/dev/go/bin/
+export PATH=$PATH:$HOME/Software/go_appengine
+export PATH=$PATH:$GOBIN
+export GOFLAGS=-tags=dev,live
 
 # nvm
 #export NVM_DIR="$HOME/.nvm"
@@ -168,3 +174,8 @@ fi
 
 # Environment variables
 #source ~/.envs
+
+# Postgres
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+
+
