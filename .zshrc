@@ -1,8 +1,5 @@
 # Set up the prompt
 
-autoload -Uz promptinit
-promptinit
-
 setopt histignorealldups sharehistory
 
 # Use emacs keybindings even if our EDITOR is set to vi
@@ -18,7 +15,7 @@ autoload -Uz compinit
 compinit
 
 #zstyle ':completion:*' auto-description 'specify: %d'
-#zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' completer _expand _complete _correct _approximate
 #zstyle ':completion:*' format 'Completing %d'
 #zstyle ':completion:*' group-name ''
 #zstyle ':completion:*' menu select=2
@@ -30,10 +27,14 @@ compinit
 #zstyle ':completion:*' menu select=long
 #zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 #zstyle ':completion:*' use-compctl false
-#zstyle ':completion:*' verbose true
+zstyle ':completion:*' verbose true
 #
-#zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-#zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+zstyle ':completion:*:history-words'                list false                          #
+zstyle ':completion:*:history-words'                menu yes                            # activate menu
+zstyle ':completion:*:history-words'                remove-all-dups yes                 # ignore duplicate entries
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+zstyle ':completion::(^approximate*):*:functions'   ignored-patterns '_*'    # Ignore completion functions for commands you don't have:
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -44,7 +45,15 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="miloshadzic"
+ZSH_THEME="hs"
+ZSH_THEME_RANDOM_CANDIDATES=(
+    "miloshadzic"
+    "agnoster"
+    "sorin"
+    "awesomepanda"
+    "pi"
+    "hs"
+)
 
 # prefered editor
 export VISUAL="vim"
@@ -94,6 +103,12 @@ export VISUAL="vim"
 plugins=(
     git 
     tmux
+    z
+    gh
+    macos
+    ssh
+    pyenv
+    postgres
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -133,14 +148,14 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # z
-. ~/.oh-my-zsh/plugins/z/z.sh
+#. ~/.oh-my-zsh/plugins/z/z.sh
 
 # Go
-export GOPATH=$HOME/dev/go/
-export GOBIN=$HOME/dev/go/bin/
-export PATH=$PATH:$HOME/Software/go_appengine
-export PATH=$PATH:$GOBIN
-export GOFLAGS=-tags=dev,live
+#export GOPATH=$HOME/dev/go/
+#export GOBIN=$HOME/dev/go/bin/
+#export PATH=$PATH:$HOME/Software/go_appengine
+#export PATH=$PATH:$GOBIN
+#export GOFLAGS=-tags=dev,live
 
 # nvm
 #export NVM_DIR="$HOME/.nvm"
@@ -161,10 +176,11 @@ export GOFLAGS=-tags=dev,live
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/mydir/lib # For Linux only
 
 
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+#if command -v pyenv 1>/dev/null 2>&1; then
+#  eval "$(pyenv init -)"
+#fi
 
+# JAVA
 #export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home
 #export JAVA_HOME=$(/usr/libexec/java_home)
 #export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
@@ -176,6 +192,31 @@ fi
 #source ~/.envs
 
 # Postgres
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+#export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+# JENV https://www.jenv.be/
+#export PATH="$HOME/.jenv/bin:$PATH"
+#eval "$(jenv init -)"
 
+zstyle ':completion:*:*:-command-:*:*' ignored-patterns 'sf*|chmem'
+zstyle ':completion:*:*:sf:*' ignored-patterns '*'
+###
+#function _sf() {
+#    shift words
+#    (( CURRENT--  ))
+#    _normal
+#}
+#compdef _sf sf
+
+# Created by `pipx` on 2024-02-15 20:24:38
+#export PATH="$PATH:/Users/martinlopez/.local/bin"
+
+# Created by `libpq` on 2024-02-15 20:24:38
+#export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+# gpg
+#export GPG_TTY=$(tty)
+
+# Python
+#export PATH="$PATH:/Users/martinlopez/Library/Python/3.9/bin"
+#eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
 
