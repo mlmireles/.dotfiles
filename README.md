@@ -40,5 +40,8 @@ vim awesome
 ## mongodb ##
 * https://www.mongodb.com
 
+## SDKMAN ##
+* https://sdkman.io/install
+
 ### postman ###
 * https://www.getpostman.com

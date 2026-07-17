@@ -208,7 +208,7 @@ zstyle ':completion:*:*:sf:*' ignored-patterns '*'
 #compdef _sf sf
 
 # Created by `pipx` on 2024-02-15 20:24:38
-export PATH="$PATH:/Users/martinlopez/.local/bin"
+export PATH="$PATH:/Users/hs/.local/bin"
 
 # Created by `libpq` on 2024-02-15 20:24:38
 #export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
@@ -224,7 +224,7 @@ export GPG_TTY=$(tty)
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-. "/Users/martinlopez/.deno/env"
+. "/Users/hs/.deno/env"
 
 # Added by claude-code-installer
-export NODE_EXTRA_CA_CERTS="/Users/martinlopez/.claude/certs/salesforce-ca-bundle.pem"
+export NODE_EXTRA_CA_CERTS="/Users/hs/.claude/certs/salesforce-ca-bundle.pem"
