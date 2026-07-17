@@ -158,9 +158,9 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
 #export GOFLAGS=-tags=dev,live
 
 # nvm
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # The next line updates PATH for the Google Cloud SDK.
 #if [ -f '/home/martin/Software/google-cloud-sdk/path.zsh.inc' ]; then source '/home/martin/Software/google-cloud-sdk/path.zsh.inc'; fi
@@ -176,9 +176,11 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/mydir/lib # For Linux only
 
 
-#if command -v pyenv 1>/dev/null 2>&1; then
-#  eval "$(pyenv init -)"
-#fi
+# pyenv
+[[ -d $PYENV_ROOT/bin  ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
 # JAVA
 #export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home
@@ -189,16 +191,14 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
 #export PATH=$PATH:/Applications/MySQLWorkbench.app/Contents/MacOS
 
 # Environment variables
-#source ~/.envs
+source ~/.envs
 
 # Postgres
 #export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
-# JENV https://www.jenv.be/
-#export PATH="$HOME/.jenv/bin:$PATH"
-#eval "$(jenv init -)"
 
 zstyle ':completion:*:*:-command-:*:*' ignored-patterns 'sf*|chmem'
 zstyle ':completion:*:*:sf:*' ignored-patterns '*'
+
 ###
 #function _sf() {
 #    shift words
@@ -208,15 +208,23 @@ zstyle ':completion:*:*:sf:*' ignored-patterns '*'
 #compdef _sf sf
 
 # Created by `pipx` on 2024-02-15 20:24:38
-#export PATH="$PATH:/Users/martinlopez/.local/bin"
+export PATH="$PATH:/Users/martinlopez/.local/bin"
 
 # Created by `libpq` on 2024-02-15 20:24:38
 #export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 # gpg
-#export GPG_TTY=$(tty)
+export GPG_TTY=$(tty)
 
 # Python
 #export PATH="$PATH:/Users/martinlopez/Library/Python/3.9/bin"
 #eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+. "/Users/martinlopez/.deno/env"
+
+# Added by claude-code-installer
+export NODE_EXTRA_CA_CERTS="/Users/martinlopez/.claude/certs/salesforce-ca-bundle.pem"
