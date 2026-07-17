@@ -1,47 +1,60 @@
 # configs #
 
-## zsh ##
+Tools marked **[scripted]** below can be installed automatically via
+`./install-cli-tools.sh` (macOS + Homebrew). Run it with no arguments to
+install everything, `./install-cli-tools.sh --list` to see the tool names,
+or `./install-cli-tools.sh <name> ...` to install specific ones.
+
+## Homebrew ## [scripted]
+* https://brew.sh
+
+## zsh ## [scripted]
 * www.zsh.org
 * https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-zsh
 
-## oh-my-zsh ##
+## oh-my-zsh ## [scripted]
 * https://github.com/robbyrussell/oh-my-zsh/
 
-## vim ##
+## vim ## [scripted]
 vim awesome
 * https://github.com/amix/vimrc
 
 ## YouCompleteMe ##
 * https://valloric.github.io/YouCompleteMe/
+* not scripted: needs an interactive build/compile step
 
-## TMUX ##
+## TMUX ## [scripted]
 * https://leanpub.com/the-tao-of-tmux/read
 * github.com/tony/tmux-config/blob/master/.tmux.conf
 * github.com/s3rvac/dotfiles/blob/master/tmux/.tmux.conf
 
-### Z ###
+### Z ### [scripted]
 * https://github.com/rupa/z
 
-## Go(lang) ##
+## Go(lang) ## [scripted]
 * https://golang.org/doc/install
-* https://github.com/fatih/vim-go
+* https://github.com/fatih/vim-go (not scripted: vim plugin, needs a plugin manager)
 * https://thoughtbot.com/blog/writing-go-in-vim
 
-## npm / node ##
-* https://nodejs.org/en/
+## nvm ## [scripted]
+* https://github.com/nvm-sh/nvm
 
-## Polymer ##
+## npm / node ## [scripted]
+* https://nodejs.org/en/
+* installed via nvm (`nvm install node` — latest version)
+
+## Polymer ## [scripted]
 * npm install -g bower
 * npm install -g polymer-cli
 
-## Android Studio ##
-* https://developer.android.com/studio/index.html
+## pyenv ## [scripted]
+* https://github.com/pyenv/pyenv
 
-## mongodb ##
+## mongodb ## [scripted]
 * https://www.mongodb.com
 
-## SDKMAN ##
+## SDKMAN ## [scripted]
 * https://sdkman.io/install
 
-### postman ###
+### postman ### [scripted]
 * https://www.getpostman.com
